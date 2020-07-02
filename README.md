@@ -1,2 +1,13 @@
 # LinuxInit
+
 To configure my Manjaro i3 version after a new installation
+
+## Usage
+
+- In a new machine, run [init.sh](./init.sh) to configure a new environment
+- To save a current state before a fresh install, run [savecurrent.sh](./savecurrent.sh)
+
+## References
+
+- [[Solved] Execute script on startup](https://bbs.archlinux.org/viewtopic.php?id=86815)
+- [Jazz Up Your “ZSH” Terminal In Seven Steps — A Visual Guide](https://medium.com/free-code-camp/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38)

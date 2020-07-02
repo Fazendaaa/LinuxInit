@@ -1,0 +1,8 @@
+[Unit]
+Description=DockerMultiArchSupportBuild
+
+[Service]
+ExecStart=/usr/bin/dockermultiarch
+
+[Install]
+WantedBy=multi-user.target 
