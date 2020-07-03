@@ -5,4 +5,4 @@ Description=DockerMultiArchSupportBuild
 ExecStart=/usr/bin/dockermultiarch
 
 [Install]
-WantedBy=multi-user.target 
+WantedBy=multi-user.target
