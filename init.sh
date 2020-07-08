@@ -3,7 +3,8 @@ pacman -Syyuu --noconfirm && yay --aur --noconfirm
 pacman -S docker docker-compose firefox chromium pulseaudio pulseaudio-alsa zsh
 pacman -Rc conky
 yay -S telegram-desktop-bin thunderbird pavucontrol-git visual-studio-code-bin \
-       neovim-git inkscape-git youtube-dl-git calibre-git etcher-git
+       neovim-git inkscape-git youtube-dl-git calibre-git etcher-git \
+       nextcloud-desktop-git
 
 # oh-my-zsh config
 chsh -s $(which zsh)
