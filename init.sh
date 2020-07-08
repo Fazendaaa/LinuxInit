@@ -1,10 +1,26 @@
 # Intial "bloat"
 pacman -Syyuu --noconfirm && yay --aur --noconfirm
-pacman -S docker docker-compose firefox chromium pulseaudio pulseaudio-alsa zsh
+pacman -S --noconfirm \
+    chromium \
+    docker \
+    docker-compose \
+    firefox \
+    pulseaudio \
+    pulseaudio-alsa \
+    zsh
 pacman -Rc conky
-yay -S telegram-desktop-bin thunderbird pavucontrol-git visual-studio-code-bin \
-       neovim-git inkscape-git youtube-dl-git calibre-git etcher-git \
-       nextcloud-desktop-git
+yay -S --noconfirm \
+    calibre-git \
+    deluge-git
+    etcher-git \
+    inkscape-git \
+    neovim-git \
+    nextcloud-desktop-git \
+    pavucontrol-git \
+    telegram-desktop-bin \
+    thunderbird \
+    visual-studio-code-bin \
+    youtube-dl-git
 
 # oh-my-zsh config
 chsh -s $(which zsh)
@@ -42,11 +58,11 @@ then
     SHELL_RC="/.bashrc"
 fi
 
-printf "\n\
-# multiarch script configurations\n\
-export DOCKER_CLI_EXPERIMENTAL=enabled\n\
-export DOCKER_BUILDKIT=1\n\
-" >> $HOME$SHELL_RC
+cat << EOF > $HOME$SHELL_RC
+# multiarch script configurations
+DOCKER_CLI_EXPERIMENTAL=enabled
+DOCKER_BUILDKIT=1
+EOF
 
 cp dockermultiarch.service /etc/systemd/system/
 cp dockermultiarch /usr/bin/
