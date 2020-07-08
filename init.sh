@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Intial "bloat"
 pacman -Syyuu --noconfirm && yay --aur --noconfirm
 pacman -S --noconfirm \
