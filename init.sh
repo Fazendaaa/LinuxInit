@@ -40,6 +40,14 @@ usermod -aG docker $USER
 ### REBOOT HERE
 
 ## docker multi-arch support
+cp dockermultiarch.service /etc/systemd/system/
+cp dockermultiarch /usr/bin/
+chmod 755 /usr/bin/dockermultiarch
+systemctl enable dockermultiarch.service
+systemctl start dockermultiarch.service
+
+### REBOOT HERE --only if 'dockermultiarch.service' has not started
+
 docker build --platform=local -o . git://github.com/docker/buildx
 mkdir -p ~/.docker/cli-plugins
 mv buildx ~/.docker/cli-plugins/docker-buildx
@@ -50,26 +58,22 @@ docker buildx inspect --bootstrap
 sudo printf "{\n\t\"experimental\": true\n}\n" | sudo tee /etc/docker/daemon.json
 
 SHELL_RC="/dev/null"
+MY_SHELL=($(echo $SHELL | tr '/' '\n'))
+MY_SHELL="${MY_SHELL[-1]}"
 
-if [ "/bin/zsh" == $SHELL ]
+if [ "zsh" == MY_SHELL ]
 then
     SHELL_RC="/.zshrc"
 fi
-if [ "/bin/bash" == $SHELL ]
+if [ "bash" == MY_SHELL ]
 then
     SHELL_RC="/.bashrc"
 fi
 
-cat << EOF > $HOME$SHELL_RC
+cat << EOF >> $HOME$SHELL_RC
 # multiarch script configurations
 DOCKER_CLI_EXPERIMENTAL=enabled
 DOCKER_BUILDKIT=1
 EOF
-
-cp dockermultiarch.service /etc/systemd/system/
-cp dockermultiarch /usr/bin/
-chmod 755 /usr/bin/dockermultiarch
-systemctl enable dockermultiarch.service
-systemctl start dockermultiarch.service
 
 # rxvt-unicode (urxvt)
