@@ -16,6 +16,7 @@ yay -S --noconfirm \
     deluge-git
     etcher-git \
     inkscape-git \
+    kdenlive \
     neovim-git \
     nextcloud-desktop-git \
     pavucontrol-git \
