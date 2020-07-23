@@ -17,9 +17,9 @@ yay -S --noconfirm \
     etcher-git \
     inkscape-git \
     kdenlive \
-    picocom-git \
     neovim-git \
     pavucontrol-git \
+    picocom-git \
     telegram-desktop-bin \
     thunderbird \
     visual-studio-code-bin \
