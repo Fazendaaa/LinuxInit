@@ -17,8 +17,8 @@ yay -S --noconfirm \
     etcher-git \
     inkscape-git \
     kdenlive \
+    picocom-git \
     neovim-git \
-    nextcloud-desktop-git \
     pavucontrol-git \
     telegram-desktop-bin \
     thunderbird \
